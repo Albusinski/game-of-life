@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:game_of_life"
         mc:Ignorable="d"
-        Title="Gra w życie" Height="585" Width="1040" ResizeMode="NoResize" Background="#181A20">
+        Title="Gra w życie" MinHeight="585" MinWidth="1040" Background="#181A20">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -13,7 +13,7 @@
             <RowDefinition Height="32"/>
         </Grid.RowDefinitions>
 
-        <Canvas x:Name="GameCanvas" Grid.Row="0" Background="#181A20" ClipToBounds="True"/>
+        <Canvas x:Name="GameCanvas" Grid.Row="0" Background="#181A20" ClipToBounds="True" MouseWheel="GameCanvas_MouseWheel" MouseLeftButtonDown="GameCanvas_MouseLeftButtonDown" MouseLeftButtonUp="GameCanvas_MouseLeftButtonUp" MouseMove="GameCanvas_MouseMove"/>
 
         <Grid Grid.Row="1" Margin="12,0,12,6" VerticalAlignment="Center"> <!-- niby alignment nic nie zmienia, ale wydaje mi sie ze lepiej tak wyglada -->
             <Grid.ColumnDefinitions>
@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="$" Foreground="#75D69C" FontFamily="Consolas" FontSize="14" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox x:Name="CommandInput" Grid.Column="1" Background="Transparent" Foreground="#75D69C" CaretBrush="#75D69C" BorderThickness="0" FontFamily="Consolas" FontSize="14" Padding="0" Margin="0" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="CommandInput" Grid.Column="1" Background="Transparent" Foreground="#75D69C" CaretBrush="#75D69C" BorderThickness="0" FontFamily="Consolas" FontSize="14" Padding="0" Margin="0" VerticalContentAlignment="Center" VerticalAlignment="Center" KeyDown="CommandInput_KeyDown"/>
         </Grid>
     </Grid>
 </Window>

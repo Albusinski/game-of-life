@@ -3,6 +3,8 @@ namespace game_of_life
 {
     public class CommandHandler
     {
+        public event System.Action<int, int>? GridRequested;
+
         public void Execute(string input)
         {
             string[] parts = input.ToLower().Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
@@ -28,7 +30,16 @@ namespace game_of_life
 
         private void CreateGrid(string[] args)
         {
-            //tworzenie grid
+            if (args.Length != 3)
+                return;
+
+            if (!int.TryParse(args[1], out int width) || width <= 0)
+                return;
+
+            if (!int.TryParse(args[2], out int height) || height <= 0)
+                return;
+
+            GridRequested?.Invoke(width, height);
         }
 
         private void Start(string[] args)
