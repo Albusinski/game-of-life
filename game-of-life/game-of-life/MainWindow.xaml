@@ -1,0 +1,28 @@
+﻿<Window x:Class="game_of_life.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:game_of_life"
+        mc:Ignorable="d"
+        Title="Gra w życie" Height="585" Width="1040" ResizeMode="NoResize" Background="#181A20">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+
+        <Canvas x:Name="GameCanvas" Grid.Row="0" Background="#181A20" ClipToBounds="True"/>
+
+        <Grid Grid.Row="1" Margin="12,0,12,6" VerticalAlignment="Center"> <!-- niby alignment nic nie zmienia, ale wydaje mi sie ze lepiej tak wyglada -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="$" Foreground="#75D69C" FontFamily="Consolas" FontSize="14" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="CommandInput" Grid.Column="1" Background="Transparent" Foreground="#75D69C" CaretBrush="#75D69C" BorderThickness="0" FontFamily="Consolas" FontSize="14" Padding="0" Margin="0" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
